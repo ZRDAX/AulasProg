@@ -15,4 +15,4 @@ public class exer19 {
             case 4 ->System.out.println("*retângulo*");
             default -> System.out.println("*diversos*");
         }
-}
+}}

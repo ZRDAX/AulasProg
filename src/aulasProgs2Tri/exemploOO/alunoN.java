@@ -1,4 +1,4 @@
-package aulaOnze.exemploOO;
+package aulasProgs2Tri.exemploOO;
 
 import java.util.Scanner;
 
