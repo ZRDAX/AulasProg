@@ -17,7 +17,7 @@ public class EscreverObjeto {
             //caminho existe
             System.out.println("A pasta existe");
         }else {
-            //caminho não existe então cria os direto
+            //caminho não existe então cria os direto 
             caminho.mkdirs();
             System.out.println("Caminho criado");
         }
