@@ -1,9 +1,8 @@
-package aulasProgs2Tri.aula20;
-
+package aulasProgs2Tri.aula20.ExemploStatic;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Conta {
+
     float valor;
     float saldoConta;
     String nomeTitular;
@@ -16,7 +15,7 @@ public class Conta {
         this.nomeTitular = nomeTitular;
         this.senha = senha;
         saldoConta = deposito;
-        geraIdentificador();
+        //geraIdentificador();
     }
 
     public void Depositar(float valor){
@@ -28,7 +27,7 @@ public class Conta {
         saldoConta -= valor;
         System.out.println("você sacou!");
     }
-
+/*
     void geraIdentificador(){
         Random aleatorio = new Random();
         String identificador = "";
@@ -38,7 +37,7 @@ public class Conta {
         identificador+=aleatorio.nextInt(1000, 2000);
         this.identificador = identificador;
     }
-
+*/
     public float VerificarSaldo(){
 
         return saldoConta;

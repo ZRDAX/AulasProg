@@ -1,4 +1,4 @@
-package aulasProgs2Tri.aula20;
+package aulasProgs2Tri.aula20.ExemploStatic;
 
 import javax.print.attribute.IntegerSyntax;
 

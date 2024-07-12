@@ -15,7 +15,7 @@ public class alunoTest {
         aluno1.sobrenome = writeline.next();
         System.out.println("Seu email: ");
         aluno1.eMail = writeline.next();
-        aluno1.codigo = ale.nextInt(1,10000);
+        //aluno1.codigo = ale.nextInt(1,10000);
         System.out.println("Sua nota um: ");
         aluno1.n1 = writeline.nextFloat();
         System.out.println("Sua nota dois: ");

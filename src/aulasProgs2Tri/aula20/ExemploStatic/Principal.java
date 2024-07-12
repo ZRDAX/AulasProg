@@ -1,5 +1,5 @@
-package aulasProgs2Tri.aula20;
-
+package aulasProgs2Tri.aula20.ExemploStatic;
+import java.util.Random;
 public class Principal {
     public static void main(String[] args) {
         Conta c1 = new Conta("Ana", "123", 10);

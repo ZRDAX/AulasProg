@@ -1,4 +1,4 @@
-package aulasProgs2Tri.aula20;
+package aulasProgs2Tri.aula20.ExemploStatic;
 
 public class Operacoes {
     static float soma(float n1, float n2){
