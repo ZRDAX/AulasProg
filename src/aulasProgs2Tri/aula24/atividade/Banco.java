@@ -6,7 +6,7 @@ import java.io.*;
 public class Banco {
 
     public static void LerObjetoContaCor(ContaCorrente[] listaCC){
-        File caminho = new File("C:\\Users\\cimol\\Documents\\aula24");
+        File caminho = new File("C:\\Users\\cimol\\Documents\\arquivodb");
         File arquivo = new File(caminho,"contaCorrente.db");
 
         try{
@@ -33,7 +33,7 @@ public class Banco {
 
     };
     public static void LerObjetoContaPou(ContaPoupanca[] lista){
-        File caminho = new File("C:\\Users\\cimol\\Documents\\aula24");
+        File caminho = new File("C:\\Users\\cimol\\Documents\\arquivodb");
         File arquivo = new File(caminho,"contaPoupanca.db");
         try{
             ObjectInputStream arquivoObj = new ObjectInputStream(new FileInputStream(arquivo.getAbsolutePath()));
@@ -59,7 +59,7 @@ public class Banco {
     }
 
     public static void EscreverObjetoContaCor(ContaCorrente[] lista){
-        File caminho = new File("C:\\Users\\cimol\\Documents\\aula24");
+        File caminho = new File("C:\\Users\\cimol\\Documents\\arquivodb");
 
         if(caminho.exists()){
             System.out.println("A pasta ja existe");
@@ -83,7 +83,7 @@ public class Banco {
         }
     };
     public static void EscreverObjetoContaPou(ContaPoupanca[] lista){
-        File caminho = new File("C:\\Users\\cimol\\Documents\\aula24");
+        File caminho = new File("C:\\Users\\cimol\\Documents\\arquivodb");
 
         if(caminho.exists()){
             System.out.println("A pasta existe");
