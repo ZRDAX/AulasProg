@@ -1,8 +1,111 @@
 package aulasProgs2Tri.aula24.atividade;
 
 import java.util.Scanner;
+import java.io.*;
 
 public class Banco {
+
+    public static void LerObjetoContaCor(ContaCorrente[] listaCC){
+        File caminho = new File("C:\\Users\\cimol\\Documents\\aula24");
+        File arquivo = new File(caminho,"contaCorrente.db");
+
+        try{
+             ObjectInputStream arquivoObj = new ObjectInputStream(new FileInputStream(arquivo.getAbsolutePath()));
+             listaCC = (ContaCorrente[]) arquivoObj.readObject();//le o arquivo como objeto e transforma essa objeto em array Pessoa
+
+            int cont = 0;
+            ContaCorrente p;
+            do{
+                p = listaCC[cont];
+                if(p!=null){
+                    cont++;
+                }
+            }while(p!=null);
+            for(int i=0; i<cont;i++){
+                System.out.println(listaCC[i]);
+            }
+            arquivoObj.close();
+        }catch(IOException e){
+            System.out.println("Erro ao ler o arquivo");
+        }catch(ClassNotFoundException e){
+            System.out.println("Classe não encontrada");
+        }
+
+    };
+    public static void LerObjetoContaPou(ContaPoupanca[] lista){
+        File caminho = new File("C:\\Users\\cimol\\Documents\\aula24");
+        File arquivo = new File(caminho,"contaPoupanca.db");
+        try{
+            ObjectInputStream arquivoObj = new ObjectInputStream(new FileInputStream(arquivo.getAbsolutePath()));
+            lista = (ContaPoupanca[]) arquivoObj.readObject();//le o arquivo como objeto e transforma essa objeto em array Pessoa
+
+            int cont =0;
+            ContaPoupanca p;
+            do{
+                p = lista[cont];
+                if(p!=null){
+                    cont++;
+                }
+            }while(p!=null);
+            for(int i=0; i<cont;i++){
+                System.out.println(lista[i]);
+            }
+            arquivoObj.close();
+        }catch(IOException e){
+            System.out.println("Erro ao ler o arquivo");
+        }catch(ClassNotFoundException e){
+            System.out.println("Classe não encontrada");
+        }
+    }
+
+    public static void EscreverObjetoContaCor(ContaCorrente[] lista){
+        File caminho = new File("C:\\Users\\cimol\\Documents\\aula24");
+
+        if(caminho.exists()){
+            System.out.println("A pasta ja existe");
+        }else{
+            caminho.mkdirs();//cria o caminho pra o arquivo
+            System.out.println("Caminho criado");
+        }
+        //Declarando o arquivo para salvar a Pessoa
+        File arquivo = new File(caminho,"contaCorrente.db");
+
+        try{
+            ObjectOutputStream arquivoObj = new ObjectOutputStream(new FileOutputStream(arquivo.getAbsolutePath()));
+
+            //escreve o array inteiro da lista
+            arquivoObj.writeObject(lista);
+            //fecha o arquivo
+            arquivoObj.close();
+
+        }catch(IOException e){
+            System.out.println("Erro ao criar ao criar o arquivo");
+        }
+    };
+    public static void EscreverObjetoContaPou(ContaPoupanca[] lista){
+        File caminho = new File("C:\\Users\\cimol\\Documents\\aula24");
+
+        if(caminho.exists()){
+            System.out.println("A pasta existe");
+        }else{
+            caminho.mkdirs();//cria o caminho pra o arquivo
+            System.out.println("Caminho criado");
+        }
+        //Declarando o arquivo para salvar a Pessoa
+        File arquivo = new File(caminho,"contaPoupanca.db");
+
+        try{
+            ObjectOutputStream arquivoObj = new ObjectOutputStream(new FileOutputStream(arquivo.getAbsolutePath()));
+
+            //escreve o array inteiro da lista
+            arquivoObj.writeObject(lista);
+            //fecha o arquivo
+            arquivoObj.close();
+
+        }catch(IOException e){
+            System.out.println("Erro ao criar ao criar o arquivo");
+        }
+    };
 
     public static String leString(String mensagem){
         Scanner ler = new Scanner(System.in);
@@ -107,10 +210,19 @@ public class Banco {
     }
 
     public static void main(String[] args) {
-        ContaCorrente[] listaCC = new ContaCorrente[20];
-        ContaPoupanca[] listaCP = new ContaPoupanca[20];
+        ContaCorrente[] listaCC =new ContaCorrente[20];
+        // Imprimindo os valores do array para verificar
         int contCC = 0;
         int contCP = 0;
+        LerObjetoContaCor(listaCC);
+
+        for ( ContaCorrente valor : listaCC) {
+            System.out.println(valor);
+        }
+
+        ContaPoupanca[] listaCP = new ContaPoupanca[20];
+
+
         String opc;
         do{
             System.out.println("Selecione uma opção");
@@ -123,6 +235,7 @@ public class Banco {
             switch (opc){
                 case "cc"->{
                     listaCC[contCC] = cadastraCC();
+
                     contCC++;
                 }
                 case "cp"->{
@@ -162,5 +275,8 @@ public class Banco {
             }
         }
         while(!opc.equals("e"));
+
+        EscreverObjetoContaCor(listaCC);
+        EscreverObjetoContaPou(listaCP);
     }
 }

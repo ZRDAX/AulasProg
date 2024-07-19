@@ -1,6 +1,7 @@
 package aulasProgs2Tri.aula24.atividade;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Conta {
     private String titular;
@@ -38,7 +39,9 @@ public class Conta {
         String id = "";
         Random aleatorio = new Random();
         for(int i=0;i<4;i++){
-            id+=(char)aleatorio.nextInt(65,90);
+            int min = 65;
+            int max = 90;
+            id+=(char)aleatorio.nextInt(min,max);
         }
         id+=aleatorio.nextInt(1000,2000);
         identificador = id;
