@@ -24,5 +24,8 @@ public class ExemploHashMap {
         System.out.println("\nLista de estados");
         for (String estado:capitais.keySet())
             System.out.println(estado+" ");
+
+        System.out.println("A lista contem uma chave 'RS' "+ capitais.containsKey("RS"));
+        System.out.println("A lista contem uma Cidade 'Porto Alegre' "+ capitais.containsValue("Porto Alegre"));
     }
 }
