@@ -9,17 +9,19 @@ public class Atendimento {
     public String getDescricao() {
         return descricao;
     }
-
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
     @Override
     public String toString(){
-        DateTimeFormatter formartoBr = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        String data = formartoBr.format(this.data);
-        String retorno = "Data: "+data;
-        retorno += "\nInformações: "+descricao;
+        DateTimeFormatter formatoBr = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String data = formatoBr.format(this.data);
+        String retorno = "Descrição: " + descricao;
+        retorno+= ", Data: "+data;
         return retorno;
     }
 }

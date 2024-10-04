@@ -1,27 +1,56 @@
 package aulasProgs2Tri.aula33.Hospital;
 
+import aulasProgs2Tri.aula33.slas.Atendimento;
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Paciente {
-
     private String nome;
     private String sobrenome;
+
+    public String getNomeCompleto() {
+        return nome + " " + sobrenome;
+    }
+    private String nomeCompleto;
+
     private LocalDate dataNascimento;
     private ArrayList<Atendimento> atendimentos;
+    private boolean ativo;
 
-    public Paciente(){
-        atendimentos = new ArrayList<Atendimento>();
-    }
-    public String getNome() {
-        return nome;
+    public Paciente(String nome, String sobrenome) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.atendimentos = new ArrayList<Atendimento>();
     }
 
-    public void setNome(String nome) {
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public String getNome(){
+        String nomeCompleto = nome +" "+sobrenome;
+        return nomeCompleto;
+    }
+
+    public void setNome(String nome){
         this.nome = nome;
     }
+
+    public String getSobrenome(){;
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome){
+        this.sobrenome = sobrenome;
+    }
+
 
     public LocalDate getDataNascimento() {
         return dataNascimento;
@@ -31,32 +60,30 @@ public class Paciente {
         this.dataNascimento = dataNascimento;
     }
 
-    public ArrayList<Atendimento> getAtendimentos(){
+    public ArrayList<Atendimento> getAtendimentos() {
         return atendimentos;
     }
 
-    public void adicionarConsulta(Atendimento atendimento){
-        atendimentos.add(atendimento);
+    public void adicionarConsulta(Atendimento atendimento) {
+        this.atendimentos.add(atendimento);
     }
 
-    public int getIdade(){
+    public int getIdade() {
         LocalDate dataAtual = LocalDate.now();
+        // Calcula a diferença entre as datas
         Period periodo = Period.between(dataNascimento, dataAtual);
-
+        //Obtém a idade da pessoa
         return periodo.getYears();
     }
 
     @Override
-    public String toString(){
-        String retorno = "Nome: "+nome+" "+sobrenome;
+    public String toString() {
+        String retorno = "Nome: " + nome + " " + sobrenome;
         DateTimeFormatter formatoBr = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String data = formatoBr.format(this.dataNascimento);
-        retorno += "Data de nascimento: "+data;
-        retorno += "Idade: "+getIdade();
+        retorno += ", Data de nascimento: " + data;
+        retorno += ", Idade: " + getIdade();
         return retorno;
     }
-
-
-
 
 }
