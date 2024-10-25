@@ -1,6 +1,5 @@
 package aulasProgs2Tri.aula33.Hospital;
 
-import aulasProgs2Tri.aula33.slas.Atendimento;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
